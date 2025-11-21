@@ -1,9 +1,9 @@
 "use client";
 
-import Particles from "@tsparticles/react";
+import Particles from "react-tsparticles";
+import { loadSlim } from "tsparticles-slim";
 import { useCallback } from "react";
-import { loadSlim } from "@tsparticles/slim";
-import type { Engine } from "@tsparticles/engine";
+import type { Engine } from "tsparticles-engine";
 
 export default function ParticlesSide() {
   const particlesInit = useCallback(async (engine: Engine) => {
@@ -12,41 +12,35 @@ export default function ParticlesSide() {
 
   return (
     <Particles
-      id="tsparticles-sides"
+      id="tsparticles"
       init={particlesInit}
       options={{
-        fullScreen: { enable: false }, // disable full screen
-        style: {
-          width: "100%",
-          height: "100%",
-          pointerEvents: "none",
-        },
+        fullScreen: { enable: false }, // keeps particles inside container
+        fpsLimit: 60,
         particles: {
           number: {
-            value: 35, // number of particles per side
+            value: 30, // fewer particles for cinematic effect
             density: {
-              enable: true,
-              value_area: 800,
+              enable: true, // only enable density
             },
           },
           color: {
-            value: ["#FFD700", "#C0C0C0", "#FFFF00"], // Gold, Silver, Yellow
+            value: "#ffffff", // light color particles
           },
           shape: {
-            type: "circle", // big & small floating circles
-          },
-          size: {
-            value: { min: 2, max: 6 },
+            type: "circle",
           },
           opacity: {
-            value: { min: 0.3, max: 0.8 },
+            value: 0.3, // subtle particles
+            random: true,
+          },
+          size: {
+            value: { min: 1, max: 3 }, // small, cinematic sizes
           },
           move: {
             enable: true,
-            speed: 0.4,
+            speed: 0.8, // slow, smooth movement
             direction: "none",
-            random: true,
-            straight: false,
             outModes: { default: "out" },
           },
         },
