@@ -26,7 +26,7 @@ export default function ParticlesSide() {
             value: 35, // number of particles per side
             density: {
               enable: true,
-              area: 800,
+              value_area: 800,
             },
           },
           color: {
