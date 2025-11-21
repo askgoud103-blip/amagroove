@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+/* app/globals.css */
+@layer utilities {
+  @keyframes pulse-slow {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.20); }
+    100% { transform: scale(1); }
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 20s ease-in-out infinite;
+    transform-origin: center;
+  }
+}
+/* ------------------------------
+   DARK + GOLD THEME
+-------------------------------*/
+:root {
+  --bg-main: #000000;
+  --bg-card: rgba(20, 20, 20, 0.7);
+  --text-main: #ffffff;
+  --text-soft: #c7c7c7;
+  --gold: #d4af37;
+  --border-gold: rgba(212, 175, 55, 0.4);
+}
+
+body {
+  background: var(--bg-main);
+  color: var(--text-main);
+  font-family: "Inter", sans-serif;
+}
+
+/* Gold Hover Effect for All Links */
+a {
+  transition: 0.3s ease;
+}
+a:hover {
+  color: var(--gold);
+}
+
+/* Gold Borders */
+.card {
+  border: 1px solid var(--border-gold);
+  background: var(--bg-card);
+  padding: 20px;
+  border-radius: 12px;
+}
+
+/* Buttons */
+button {
+  background: var(--gold);
+  color: #000;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+button:hover {
+  background: #f0d578;
+}
+
+
+
