@@ -1,3 +1,5 @@
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -25,7 +27,8 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
-/* app/globals.css */
+
+/* Animation Layer */
 @layer utilities {
   @keyframes pulse-slow {
     0% { transform: scale(1); }
@@ -38,6 +41,7 @@ body {
     transform-origin: center;
   }
 }
+
 /* ------------------------------
    DARK + GOLD THEME
 -------------------------------*/
@@ -83,6 +87,23 @@ button {
 button:hover {
   background: #f0d578;
 }
+/* ------------------------------
+   MOBILE RESPONSIVE FIX
+-------------------------------*/
+@media (max-width: 768px) {
+  .mobile-center {
+    text-align: center !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
 
+  .mobile-stack {
+    flex-direction: column !important;
+    gap: 10px;
+  }
 
+  .mobile-hide {
+    display: none !important;
+  }
+}
 

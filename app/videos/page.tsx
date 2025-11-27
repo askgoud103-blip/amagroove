@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import ParticlesSide from "@/components/ParticlesSide";
 
 const videosData = [
   {
@@ -34,14 +33,7 @@ export default function VideosPage() {
   return (
     <main className="relative w-full min-h-screen bg-black text-white overflow-hidden">
 
-      {/* Left & Right Particles */}
-      <div className="absolute top-0 left-0 h-full w-[15%] z-10 pointer-events-none">
-        <ParticlesSide />
-      </div>
-      <div className="absolute top-0 right-0 h-full w-[15%] z-10 pointer-events-none">
-        <ParticlesSide />
-      </div>
-
+      
       {/* Navbar */}
       <nav className="absolute top-0 left-0 w-full z-50 px-8 py-5 flex justify-between items-center bg-transparent">
         <h1 className="text-2xl font-bold text-[var(--gold)] tracking-wide drop-shadow-lg glow-gold">
