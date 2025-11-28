@@ -35,9 +35,23 @@ export default function Home() {
 
   {/* Left Side: Logo (top) + Small Video (below) */}
   <div className="flex flex-col items-start gap-1">
-    <h1 className="text-2xl font-bold text-[var(--gold)] tracking-wide drop-shadow-lg glow-gold">
-      Amagroove
-    </h1>
+   <motion.h1
+  initial={{ opacity: 0, y: 40 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 1 }}
+  className="
+    text-2xl md:text-4xl 
+    font-extrabold 
+    
+    text-transparent
+    bg-clip-text
+    bg-gradient-to-r from-yellow-200 via-yellow-500 to-yellow-200
+    drop-shadow-[0_0_35px_rgba(255,215,0,0.9)]
+  "
+>
+  Ama<span className="wave-symbol">~</span>Groove
+</motion.h1>
+
 
     <video
       className="w-20 md:w-24 rounded-lg shadow-lg border-2 border-[var(--gold)]"
@@ -70,7 +84,7 @@ export default function Home() {
   transition={{ duration: 1 }}
   className="text-4xl md:text-7xl font-bold text-[var(--gold)] drop-shadow-2xl animate-pulse"
 >
-  Amagroove
+  Ama<span className="wave-symbol">~</span>Groove
 </motion.h1>
 
 <motion.p
@@ -118,9 +132,9 @@ export default function Home() {
 
     {/* Left: Logo */}
     <div>
-      <h2 className="text-2xl font-bold text-[var(--gold)] mb-2">Amagroove</h2>
+      <h2 className="text-2xl font-bold text-[var(--gold)] mb-2">Ama<span className="wave-symbol">~</span>Groove</h2>
       <p className="text-gray-300 text-sm">
-        Where Indian classical rhythm blends with modern groove.
+        Where Indian Classical Rhythm Blends with Modern Western Groove.
       </p>
     </div>
 
@@ -160,7 +174,7 @@ export default function Home() {
 
   {/* Bottom line */}
   <div className="text-center text-gray-500 text-xs mt-10 border-t border-gray-700 pt-4">
-    © {new Date().getFullYear()} Amagroove. All rights reserved.
+    © {new Date().getFullYear()} Ama<span className="wave-symbol">~</span>Groove. All rights reserved.
   </div>
 </motion.footer>
 <a

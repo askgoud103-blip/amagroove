@@ -106,4 +106,9 @@ button:hover {
     display: none !important;
   }
 }
+@keyframes waveFloat {
+  0%, 100% { transform: translateY(-2px); }
+  50% { transform: translateY(4px); }
+}
+
 
