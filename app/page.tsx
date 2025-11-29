@@ -132,7 +132,7 @@ export default function Home() {
 
     {/* Left: Logo */}
     <div>
-      <h2 className="text-2xl font-bold text-[var(--gold)] mb-2">Ama<span className="wave-symbol">~</span>Groove</h2>
+      <h2 className="text-2xl font-bold text-[var(--gold)] mb-4">Ama<span className="wave-symbol">~</span>Groove</h2>
       <p className="text-gray-300 text-sm">
         Where Indian Classical Rhythm Blends with Modern Western Groove.
       </p>
