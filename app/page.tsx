@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 
 import { motion } from "framer-motion";
 
@@ -120,6 +121,99 @@ export default function Home() {
 
       </div>
       
+      {/* Featured Performances Section */}
+<section className="relative z-20 py-24 bg-black text-white">
+  <div className="max-w-7xl mx-auto px-6">
+
+    {/* Section Title */}
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      className="text-center mb-16"
+    >
+      <h2 className="text-4xl md:text-5xl font-bold text-[var(--gold)]">
+        Featured Performances
+      </h2>
+      <p className="mt-4 text-gray-300 max-w-2xl mx-auto">
+        A glimpse into our signature rhythms where tradition meets modern expression.
+      </p>
+    </motion.div>
+
+    {/* Cards */}
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+      {/* Card 1 */}
+     <Link href="/performances/classical-fusion">
+  <motion.div
+    whileHover={{ scale: 1.05 }}
+    className="cursor-pointer bg-black/60 border border-gray-700 rounded-xl overflow-hidden shadow-lg"
+  >
+    <img
+      src="/perf1.jpg"
+      alt="Classical Fusion"
+      className="w-full h-56 object-cover"
+    />
+    <div className="p-6">
+      <h3 className="text-xl font-semibold text-[var(--gold)]">
+        Classical Fusion
+      </h3>
+      <p className="text-gray-300 text-sm mt-2">
+        A powerful blend of Indian classical rhythm and contemporary movement.
+      </p>
+    </div>
+  </motion.div>
+</Link>
+
+
+      {/* Card 2 */}
+      <Link href="/performances/temple-rhythms">
+      <motion.div
+        whileHover={{ scale: 1.05 }}
+        className="bg-black/60 border border-gray-700 rounded-xl overflow-hidden shadow-lg"
+      >
+        <img
+          src="/perf2.jpg"
+          alt="Temple Rhythms"
+          className="w-full h-56 object-cover"
+        />
+        <div className="p-6">
+          <h3 className="text-xl font-semibold text-[var(--gold)]">
+            Temple Rhythms
+          </h3>
+          <p className="text-gray-300 text-sm mt-2">
+            Spiritual storytelling through powerful rhythmic expressions.
+          </p>
+        </div>
+      </motion.div>
+      </Link>
+
+      {/* Card 3 */}
+      <Link href="/performances/urban-groove">
+      <motion.div
+        whileHover={{ scale: 1.05 }}
+        className="bg-black/60 border border-gray-700 rounded-xl overflow-hidden shadow-lg"
+      >
+        <img
+          src="/perf3.jpg"
+          alt="Urban Groove"
+          className="w-full h-56 object-cover"
+        />
+        <div className="p-6">
+          <h3 className="text-xl font-semibold text-[var(--gold)]">
+            Urban Groove
+          </h3>
+          <p className="text-gray-300 text-sm mt-2">
+            Where tradition meets modern street rhythm and expression.
+          </p>
+        </div>
+      </motion.div>
+      </Link>
+
+    </div>
+  </div>
+</section>
+
            
       {/* Footer */}
 <motion.footer
