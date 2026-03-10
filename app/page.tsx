@@ -125,7 +125,7 @@ export default function Home() {
             </h1>
             
             <p className="mt-8 text-sm md:text-xl text-gray-200 font-light tracking-[0.1em] max-w-xl mx-auto italic drop-shadow-md">
-              "The precision of the Mudra. The energy of the Street."
+              Indian Classical Rhythm meets Modern Western Groove
             </p>
 
             <div className="mt-12 flex flex-col sm:flex-row gap-5 justify-center">
