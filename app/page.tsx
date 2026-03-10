@@ -133,7 +133,7 @@ export default function Home() {
                 Watch Acts <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link href="/contact" className="px-10 py-4 border border-white/30 text-white font-bold rounded-full hover:bg-white/10 transition-all text-xs uppercase tracking-widest backdrop-blur-md">
-                Book Us
+                Learn Steps
               </Link>
             </div>
           </motion.div>
