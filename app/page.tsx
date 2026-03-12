@@ -1,4 +1,5 @@
 "use client";
+// Vercel Update: 1.0
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
