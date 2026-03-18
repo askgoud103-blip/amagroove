@@ -101,7 +101,7 @@ export default function Home() {
             loop
             muted
             playsInline
-            className="w-full h-full object-cover brightness-[0.6]"
+            className="w-full h-full object-content brightness-[0.6]"
           >
             <source src="/hero1.mp4" type="video/mp4" />
           </video>
@@ -154,7 +154,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {[
               { title: "Classical Fusion", img: "/perf1.jpg", tag: "Contemporary" },
-              { title: "Temple Rhythms", img: "/perf2.jpg", tag: "Kathak-House" },
+              { title: "Temple Rhythms", img: "/perf2.jpg", tag: "Kuchipudi-House" },
               { title: "Urban Groove", img: "/perf3.jpg", tag: "Bolly-Hop" },
             ].map((perf, index) => (
               <motion.div
