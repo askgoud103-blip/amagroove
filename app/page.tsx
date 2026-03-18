@@ -142,41 +142,90 @@ export default function Home() {
       </section>
 
       {/* 2. SIGNATURE ACTS SECTION */}
-      <section className="relative py-24 bg-black">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 border-l-2 border-yellow-500 pl-6">
-            <div>
-              <h2 className="text-4xl md:text-6xl font-black text-white italic tracking-tighter">Signature Acts</h2>
-              <p className="text-gray-500 text-sm mt-2 tracking-[0.2em] uppercase font-bold">Blending Traditions</p>
-            </div>
-          </div>
+<section className="relative py-24 bg-black">
+  <div className="max-w-7xl mx-auto px-6">
+    <div className="flex flex-col md:flex-row justify-between items-end mb-16 border-l-2 border-yellow-500 pl-6">
+      <div>
+        <h2 className="text-4xl md:text-6xl font-black text-white italic tracking-tighter">Signature Acts</h2>
+        <p className="text-gray-500 text-sm mt-2 tracking-[0.2em] uppercase font-bold">Blending Traditions</p>
+      </div>
+    </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            {[
-              { title: "Classical Fusion", img: "/perf1.jpg", tag: "Contemporary" },
-              { title: "Temple Rhythms", img: "/perf2.jpg", tag: "Kuchipudi-House" },
-              { title: "Urban Groove", img: "/perf3.jpg", tag: "Bolly-Hop" },
-            ].map((perf, index) => (
-              <motion.div
-                key={index}
-                whileHover={{ y: -10 }}
-                className="group relative h-[500px] overflow-hidden rounded-2xl bg-zinc-900 border border-white/5"
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+      {[
+        { title: "Classical Fusion", src: "/classical1.mp4", tag: "Contemporary" },
+        { title: "Temple Rhythms", src: "/temple1.mp4", tag: "Kuchipudi-House" },
+        { title: "Urban Groove", src: "/groove1.mp4", tag: "Bolly-Hop" }, // Now a video!
+      ].map((perf, index) => {
+        // Local state for each individual card's hover status
+        const [isHovered, setIsHovered] = useState(false);
+
+        return (
+          <motion.div
+            key={index}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            whileHover={{ y: -10 }}
+            className="group relative h-[500px] overflow-hidden rounded-2xl bg-zinc-900 border border-white/5 cursor-pointer"
+          >
+            <video 
+              src={perf.src}
+              loop
+              muted
+              playsInline
+              // Use a ref to control playback based on hover state
+              ref={(el) => {
+                if (el) {
+                  if (isHovered) {
+                    el.play().catch(() => {}); // Catch prevents console errors on fast hover
+                  } else {
+                    el.pause();
+                    el.currentTime = 0; // Resets to start when mouse leaves
+                  }
+                }
+              }}
+              className={`w-full h-full object-cover transition-all duration-700 ease-in-out ${
+                isHovered ? "opacity-100 scale-105 grayscale-0" : "opacity-50 grayscale-[0.8]"
+              }`}
+            />
+
+            {/* Overlay Gradient */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none" />
+            
+            {/* Text Content */}
+            <div className="absolute bottom-0 left-0 p-8 w-full">
+              <span className="text-yellow-500 text-[10px] font-black uppercase tracking-widest block mb-2">
+                {perf.tag}
+              </span>
+              <h3 className="text-3xl font-black text-white group-hover:text-yellow-500 transition-colors duration-300">
+                {perf.title}
+              </h3>
+              
+              <motion.div 
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: isHovered ? 1 : 0, height: isHovered ? "auto" : 0 }}
+                className="overflow-hidden"
               >
-                <img 
-                  src={perf.img} 
-                  alt={perf.title} 
-                  className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-all duration-700 grayscale-[0.3] group-hover:grayscale-0" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
-                <div className="absolute bottom-0 left-0 p-8">
-                  <span className="text-yellow-500 text-[10px] font-black uppercase tracking-widest">{perf.tag}</span>
-                  <h3 className="text-3xl font-black text-white mt-2 group-hover:text-yellow-500 transition-colors">{perf.title}</h3>
-                </div>
+                <Link href="/gallery" className="inline-block mt-4 text-[10px] text-white uppercase tracking-widest border-b border-yellow-500/50 pb-1 hover:border-yellow-500 transition-all">
+                  View Full Performance
+                </Link>
               </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+            </div>
+
+            {/* Play Icon Hint (Visible when NOT hovered) */}
+            {!isHovered && (
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-20 group-hover:opacity-0 transition-opacity">
+                 <div className="border-2 border-white rounded-full p-4">
+                    <div className="w-0 h-0 border-t-[10px] border-t-transparent border-l-[15px] border-l-white border-b-[10px] border-b-transparent ml-1" />
+                 </div>
+              </div>
+            )}
+          </motion.div>
+        );
+      })}
+    </div>
+  </div>
+</section>
 
       {/* 3. FOOTER */}
       <footer className="relative pt-24 pb-12 px-6 bg-zinc-950 border-t border-white/5">
@@ -208,7 +257,7 @@ export default function Home() {
           <div>
             <h4 className="text-white font-bold mb-8 uppercase tracking-widest text-xs">Contact</h4>
             <a href="mailto:amagroove@gmail.com" className="text-gray-500 text-sm block mb-2 hover:text-white transition-colors underline decoration-yellow-500/30">amagroove@gmail.com</a>
-            <p className="text-gray-500 text-sm">+91 8639810801</p>
+            <p className="text-gray-500 text-sm">+91 8x3x8x0x0x</p>
           </div>
         </div>
 

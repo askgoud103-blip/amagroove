@@ -90,7 +90,7 @@ export default function ContactPage() {
           className="mt-12 text-gray-400 text-center"
         >
           <p>Email: <span className="text-[var(--gold)]">info@amagroove.com</span></p>
-          <p>Phone: <span className="text-[var(--gold)]">+91 8639810801</span></p>
+          <p>Phone: <span className="text-[var(--gold)]">+91 8x3x8x0x0x</span></p>
           <p>Follow us on social media for latest updates!</p>
         </motion.div>
       </div>
